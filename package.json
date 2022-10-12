@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    
     "bundle": "mkdir deploy && cp -r app server.js package.json schedule-t6-backend.service deploy .env deploy"
   },
   "repository": {
