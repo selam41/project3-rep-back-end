@@ -21,21 +21,27 @@ db.sequelize = sequelize;
 db.sections = require("./section.model.js")(sequelize, Sequelize);
 db.courses = require("./course.model.js")(sequelize, Sequelize);
 db.semesters = require("./semester.model.js")(sequelize, Sequelize);
-// db.faculity = require("./faculity.model.js")(sequelize, Sequelize);
+db.faculitys = require("./faculity.model")(sequelize, Sequelize);
 // db.room = require("./room.model.js")(sequelize, Sequelize);
 
-//One to Many course ans section
+//One to Many course and section
 db.courses.hasMany(db.sections, { as: "sections" });
 db.sections.belongsTo(db.courses, {
   foreignKey: "courseId",
   as: "course",
 });
-//One to Many semester ans section
+//One to Many semester ands section
 db.semesters.hasMany(db.sections, { as: "sections" });
 db.sections.belongsTo(db.semesters, {
   foreignKey: "semesterId",
   as: "semester",
 });
 
+//One to Many section and faculity
+db.sections.hasMany(db.faculitys, { as: "faculitys" });
+db.faculitys.belongsTo(db.sections, {
+  foreignKey: "sectionId",
+  as: "section",
+});
 
 module.exports = db;

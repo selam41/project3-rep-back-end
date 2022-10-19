@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 require("./app/routes/course.routes.js")(app);
 require("./app/routes/section.routes")(app);
 require("./app/routes/semester.routes")(app);
+require("./app/routes/faculity.routes")(app);
 
 
 // set port, listen for requests
