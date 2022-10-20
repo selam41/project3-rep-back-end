@@ -36,6 +36,7 @@ require("./app/routes/section.routes")(app);
 require("./app/routes/semester.routes")(app);
 require("./app/routes/room.routes")(app);
 require("./app/routes/special_list.routes")(app);
+require("./app/routes/user.routes")(app);
 
 
 
