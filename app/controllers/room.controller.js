@@ -26,7 +26,7 @@ exports.create = (req, res) => {
       });
     });
 };
-// Retrieve all Tutorials from the database.
+// Retrieve all room s from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -105,7 +105,7 @@ exports.delete = (req, res) => {
       });
     });
 };
-// Delete all Tutorials from the database.
+// Delete all rooms from the database.
 exports.deleteAll = (req, res) => {
   Rooms.destroy({
     where: {},
@@ -120,7 +120,7 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-// Find all published Tutorials
+// Find all published rooms
 exports.findAllPublished = (req, res) => {
   Rooms.findAll({ where: { published: true } })
     .then((data) => {
