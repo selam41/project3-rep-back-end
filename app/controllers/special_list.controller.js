@@ -1,6 +1,6 @@
 const db = require("../models");
-const { Op } = require("sequelize");
 const Special_list = db.special_list;
+const Op = db.Sequelize.Op;
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {

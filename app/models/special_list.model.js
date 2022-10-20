@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const SpecialList = sequelize.define("special_list", {
+    const Special_list = sequelize.define("special_list", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -10,5 +10,5 @@ module.exports = (sequelize, Sequelize) => {
       timestamps: false
     });
   
-    return SpecialList;
+    return Special_list;
   };
