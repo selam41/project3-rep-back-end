@@ -29,11 +29,14 @@ db.sequelize.sync({ force: true }).then(() => {
   });
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome Team 6." });
 });
 require("./app/routes/course.routes.js")(app);
 require("./app/routes/section.routes")(app);
 require("./app/routes/semester.routes")(app);
+require("./app/routes/room.routes")(app);
+require("./app/routes/special_list.routes")(app);
+
 
 
 // set port, listen for requests

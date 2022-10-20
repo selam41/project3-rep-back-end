@@ -1,29 +1,16 @@
 const db = require("../models");
 const { Op } = require("sequelize");
-const Room = db.room;
+const Special_list = db.special_list;
 
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.number) {
-    res.status(400).send({
-      message: "Number can not be empty!"
-    });
-    return;
-  } else if (!req.body.capacity) {
-    res.status(400).send({
-      message: "Capacity can not be empty!"
-    });
-    return;
-  }
-  
-  const room = {
-    number: req.body.number,
-    capacity: req.body.capacity
+  const course = {
+    userId: req.params.userId,
+    courseId: req.params.courseId
   };
 
   // Create and Save a new Course
-  Room.create(room)
+  Special_list.create(course)
     .then(data => {
       res.send(data);
     })
@@ -37,7 +24,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Courses from the database
 exports.findAll = (req, res) => {
-  Room.findAll()
+  Special_list.findAll()
     .then(data => {
       res.send(data);
     })
@@ -52,7 +39,7 @@ exports.findAll = (req, res) => {
 // Retrieve a single Course with an id
 exports.findById = (req, res) => {
   const id = req.params.id;
-  Room.findByPk(id)
+  Special_list.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
@@ -72,7 +59,7 @@ exports.findById = (req, res) => {
 // Update a Course by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
-  Room.update(req.body, {
+  Special_list.update(req.body, {
     where: { id: id }
   })
   .then(num => {
@@ -96,7 +83,7 @@ exports.update = (req, res) => {
 // Delete a Course with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-  Room.destroy({
+  Special_list.destroy({
     where: { id: id }
   })
   .then(num => {
