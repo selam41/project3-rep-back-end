@@ -29,7 +29,7 @@ exports.create = (req, res) => {
       });
     });
 };
-// Retrieve all Tutorials from the database.
+// Retrieve all sections from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -109,7 +109,7 @@ exports.delete = (req, res) => {
       });
     });
 };
-// Delete all Tutorials from the database.
+// Delete all sections from the database.
 exports.deleteAll = (req, res) => {
   Section.destroy({
     where: {},
@@ -125,7 +125,7 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-// Find all published Tutorials
+// Find all published sections
 exports.findAllPublished = (req, res) => {
   Section.findAll({ where: { published: true } })
     .then((data) => {

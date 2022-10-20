@@ -1,7 +1,7 @@
 const db = require("../models");
 const Course = db.courses;
 const Op = db.Sequelize.Op;
-// Create and Save a new Tutorial
+// Create and Save a new course
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.name) {
@@ -29,7 +29,7 @@ exports.create = (req, res) => {
       });
     });
 };
-// Retrieve all Tutorials from the database.
+// Retrieve all course from the database.
 exports.findAll = (req, res) => {
   const name = req.query.name;
   var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
@@ -43,7 +43,7 @@ exports.findAll = (req, res) => {
       });
     });
 };
-// Find a single Tutorial with an id
+// Find a single course with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
   Course.findByPk(id)
@@ -62,7 +62,7 @@ exports.findOne = (req, res) => {
       });
     });
 };
-// Update a Tutorial by the id in the request
+// Update a course by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
   Course.update(req.body, {
@@ -108,7 +108,7 @@ exports.delete = (req, res) => {
       });
     });
 };
-// Delete all Tutorials from the database.
+// Delete all course from the database.
 exports.deleteAll = (req, res) => {
   Course.destroy({
     where: {},
@@ -124,7 +124,7 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-// Find all published Tutorials
+// Find all published course
 exports.findAllPublished = (req, res) => {
   Course.findAll({ where: { published: true } })
     .then((data) => {
