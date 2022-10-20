@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize) => {
     number: {
       type: Sequelize.STRING,
     },
-    level: {
+    capacity: {
       type: Sequelize.INTEGER(11),
     },
   });
