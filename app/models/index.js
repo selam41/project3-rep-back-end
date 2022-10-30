@@ -21,8 +21,10 @@ db.sequelize = sequelize;
 db.sections = require("./section.model.js")(sequelize, Sequelize);
 db.courses = require("./course.model.js")(sequelize, Sequelize);
 db.semesters = require("./semester.model.js")(sequelize, Sequelize);
-// db.faculity = require("./faculity.model.js")(sequelize, Sequelize);
-// db.room = require("./room.model.js")(sequelize, Sequelize);
+db.faculity = require("./faculity.model.js")(sequelize, Sequelize);
+db.room = require("./room.model.js")(sequelize, Sequelize);
+db.special_list = require("./special_list.model.js")(sequelize, Sequelize);
+db.user = require("./user.model.js")(sequelize, Sequelize);
 
 //One to Many course ans section
 db.courses.hasMany(db.sections, { as: "sections" });
