@@ -29,6 +29,7 @@ db.section_times = require("./section_time.model")(sequelize, Sequelize);
 db.users = require("./user.model")(sequelize, Sequelize);
 db.sessions = require("./session.model.js")(sequelize, Sequelize);
 
+db.special_lists = require("./special_list.model")(sequelize, Sequelize);
 // one to many user and role 
 // db.roles.hasMany(db.users, { as: "users" });
 // db.users.belongsTo(db.roles, {
@@ -38,6 +39,18 @@ db.sessions = require("./session.model.js")(sequelize, Sequelize);
 //One to Many course and section
 db.users.hasMany(db.sessions, { as: 'sessions'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 db.sessions.belongsTo(db.users, { as: 'users'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+
+db.users.hasMany(db.special_lists , { as: "special_lists" });
+db.special_lists.belongsTo(db.users, {
+  foreignKey: "userId",
+  as: "user",
+});
+db.courses.hasMany(db.special_lists , { as: "special_lists" });
+db.special_lists.belongsTo(db.courses, {
+  foreignKey: "courseId",
+  as: "course",
+});
+
 
 db.courses.hasMany(db.sections, { as: "sections" });
 db.sections.belongsTo(db.courses, {
