@@ -39,6 +39,9 @@ db.sessions = require("./session.model.js")(sequelize, Sequelize);
 db.users.hasMany(db.sessions, { as: 'sessions'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 db.sessions.belongsTo(db.users, { as: 'users'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
 
+// db.users.hasMany(db.courses, { as: 'courses'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+// db.courses.belongsTo(db.users, { as: 'users'}, { foreignKey: { allowNull: false }, onDelete: 'CASCADE' });
+
 db.courses.hasMany(db.sections, { as: "sections" });
 db.sections.belongsTo(db.courses, {
   foreignKey: "courseId",
