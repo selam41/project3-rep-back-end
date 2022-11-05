@@ -1,19 +1,28 @@
 module.exports = app => {
-    const sections = require("../controllers/section.controller");
-    var router = require("express").Router();
-    // Create a new course
-    router.post("/", sections.create);
-    // Retrieve all sections
-    router.get("/", sections.findAll);
-    // Retrieve all published sections
-    router.get("/published", sections.findAllPublished);
-    // Retrieve a single course with id
-    router.get("/:id", sections.findOne);
-    // Update a course with id
-    router.put("/:id", sections.update);
-    // Delete a course with id
-    router.delete("/:id", sections.delete);
-    // Delete all course
-    router.delete("/", sections.deleteAll);
-    app.use('/api/sections', router);
-  };
+  const sections = require("../controllers/section.controller.js");
+  const { authenticate } = require("../authorization/authorization.js");
+  var router = require("express").Router();
+
+  // Create a new Section for a Tutorial
+  router.post("/:courseId/sections/", sections.create);
+
+  // Retrieve all Sections for a Tutorial
+  router.get("/:courseId/sections/", sections.findAllForCourse);
+
+  // Retrieve all published Sections for a Tutorial
+  router.get("/:courseId/sections/published", sections.findAllPublished);
+
+  // Retrieve a single Section with id
+  router.get("/:courseId/sections/:id", sections.findOne);
+
+  // Update a Section with id
+  router.put("/:courseId/sections/:id", sections.update);
+
+  // Delete a Section with id
+  router.delete("/:courseId/sections/:id", sections.delete);
+
+  // Delete all Sections
+  router.delete("/:courseId/sections/:id", sections.deleteAll);
+
+  app.use('/api/course', router);
+};
