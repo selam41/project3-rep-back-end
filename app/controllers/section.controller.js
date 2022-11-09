@@ -13,6 +13,7 @@ exports.create = (req, res) => {
 
   // Create a Section
   const section = {
+    semesterId: req.body.semesterId,
     courseId: req.params.courseId,
     title: req.body.title,
     number: req.body.number
@@ -86,7 +87,16 @@ exports.findOne = (req, res) => {
 // Update a Section by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
-  Section.update(req.body, {
+
+  const section = {
+    id: id,
+    semesterId: req.body.semesterId,
+    courseId: req.params.courseId,
+    title: req.body.title,
+    number: req.body.number
+  };
+
+  Section.update(section, {
     where: { id: id }
   })
     .then(num => {

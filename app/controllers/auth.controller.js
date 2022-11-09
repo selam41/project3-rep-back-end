@@ -52,6 +52,7 @@ exports.login = async (req, res) => {
                 fName: firstName,
                 lName: lastName,
                 email: email,
+                role: "STU",
             }
         }
     })
@@ -113,6 +114,8 @@ exports.login = async (req, res) => {
             lName : user.lName,
             userId : user.id,
             token: token,
+            role: "Admin",
+            //role: user.role,
             // refresh_token: user.refresh_token,
             // expiration_date: user.expiration_date
         }
