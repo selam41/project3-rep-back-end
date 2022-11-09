@@ -19,6 +19,7 @@ exports.create = (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime,
   };
+  console.log("section_time"  , section_time)
   // Save section_time in the database
   Section_times.create(section_time)
     .then((data) => {

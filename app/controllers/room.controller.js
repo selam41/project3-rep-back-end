@@ -13,7 +13,7 @@ exports.create = (req, res) => {
   // Create a room
   const room = {
     number: req.body.number,
-    level: req.body.level,
+    capacity: req.body.capacity,
   };
   // Save room in the database
   Rooms.create(room)
