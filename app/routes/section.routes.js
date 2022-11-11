@@ -3,6 +3,7 @@ module.exports = app => {
   const { authenticate } = require("../authorization/authorization.js");
   var router = require("express").Router();
 
+  router.get("/sections", sections.findAll);
   // Create a new Section for a Tutorial
   router.post("/:courseId/sections/", sections.create);
 
