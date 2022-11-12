@@ -28,6 +28,20 @@ db.rooms = require("./room.model.js")(sequelize, Sequelize);
 db.section_times = require("./section_time.model")(sequelize, Sequelize);
 db.users = require("./user.model")(sequelize, Sequelize);
 db.sessions = require("./session.model.js")(sequelize, Sequelize);
+db.special_lists = require("./special_list.model")(sequelize, Sequelize);
+
+
+db.courses.hasMany(db.special_lists, { as: "special_lists" });
+db.special_lists.belongsTo(db.courses, {
+  foreignKey: "courseId",
+  as: "course",
+});
+
+db.users.hasMany(db.special_lists, { as: "special_lists" });
+db.special_lists.belongsTo(db.users, {
+  foreignKey: "userId",
+  as: "users",
+});
 
 // one to many user and role 
 // db.roles.hasMany(db.users, { as: "users" });
@@ -74,17 +88,17 @@ db.section_times.belongsTo(db.rooms, {
 });
 
 //Many to Many 
-db.courses.belongsToMany(db.users, {
-  through: "special_list",
-  as: "course",
-  foreignKey: "coursesId",
-});
+// db.courses.belongsToMany(db.users, {
+//   through: "special_list",
+//   as: "course",
+//   foreignKey: "coursesId",
+// });
 
-db.users.belongsToMany(db.courses, {
-  through: "special_list",
-  as: "user",
-  foreignKey: "userId",
-});
+// db.users.belongsToMany(db.courses, {
+//   through: "special_list",
+//   as: "user",
+//   foreignKey: "userId",
+// });
 
 
 db.semesters.belongsToMany(db.users, {
