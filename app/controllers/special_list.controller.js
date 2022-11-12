@@ -1,15 +1,15 @@
 const db = require("../models");
-const Special_list = db.sections;
+const Special_list = db.special_lists;
 const Op = db.Sequelize.Op;
 // Create and Save a new sections
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-    return;
-  }
+  // if (!req.body.title) {
+  //   res.status(400).send({
+  //     message: "Content can not be empty!",
+  //   });
+  //   return;
+  // }
   // Create a special_list
   const special_list = {
     
