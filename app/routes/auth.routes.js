@@ -12,5 +12,5 @@ module.exports = app => {
   // Logout
   router.post("/logout" ,auth.logout);
 
-  app.use('/api/auth', router);
+  app.use('/schedule-t6/auth', router);
 };

@@ -15,5 +15,5 @@ module.exports = app => {
   router.delete("/:id", Section_times.delete);
   // Delete all Section_times
   router.delete("/", Section_times.deleteAll);
-  app.use('/api/section_times', router);
+  app.use('/schedule-t6/section_times', router);
 };

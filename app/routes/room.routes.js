@@ -15,5 +15,5 @@ module.exports = app => {
   router.delete("/:id", rooms.delete);
   // Delete all course
   router.delete("/", rooms.deleteAll);
-  app.use('/api/rooms', router);
+  app.use('/schedule-t6/rooms', router);
 };

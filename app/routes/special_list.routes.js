@@ -15,5 +15,5 @@ module.exports = app => {
     router.delete("/:id", Special_lists.delete);
     // Delete all Special_lists
     router.delete("/", Special_lists.deleteAll);
-    app.use('/api/special_lists', router);
+    app.use('/schedule-t6/special_lists', router);
   };

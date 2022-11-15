@@ -21,5 +21,5 @@ module.exports = (app) => {
   // Delete all User
   router.delete("/", user.deleteAll);
 
-  app.use("/api/user", router);
+  app.use("/schedule-t6/user", router);
 };
