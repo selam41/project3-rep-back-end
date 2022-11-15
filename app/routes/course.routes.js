@@ -27,5 +27,5 @@ module.exports = app => {
   // Delete all Courses
   router.delete("/", [authenticate], courses.deleteAll);
 
-  app.use('/api/courses', router);
+  app.use('/schedule-t6/courses', router);
 };

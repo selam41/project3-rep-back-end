@@ -15,5 +15,5 @@ module.exports = (app) => {
   router.delete("/:id", semesters.delete);
   // Delete all semester
   router.delete("/", semesters.deleteAll);
-  app.use("/api/semesters", router);
+  app.use("/schedule-t6/semesters", router);
 };
